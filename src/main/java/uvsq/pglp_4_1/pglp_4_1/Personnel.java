@@ -9,6 +9,7 @@ public class Personnel implements Hierarchie  {
 	private final String Prenom;
 	private final String Fonction;
 	private final LocalDate DateNaissance;
+	private final ArrayList<NumTel> NumeroTel;
 	
 	
 	public void afficher() {
@@ -21,21 +22,29 @@ public class Personnel implements Hierarchie  {
 		private final String Prenom;
 		private final String Fonction;
 		private final LocalDate DateNaissance;
+		private final ArrayList<NumTel> NumeroTel;
 		
 		
-		public Builder(String Nom, String Prenom, String Fonction, LocalDate DateNaissance) {
+		public Builder(String Nom, String Prenom, String Fonction, LocalDate DateNaissance ) {
 			this.Nom=Nom;
 			this.Prenom=Prenom;
 			this.Fonction=Fonction;
 			this.DateNaissance=DateNaissance;
+			this.NumeroTel= new ArrayList<NumTel>();
+		}
+		
+		public Builder NumeroTel(NumTel numero) {
+			this.NumeroTel.add(numero);
+			return this;
 		}
 	}
 	
 	private Personnel(Builder builder) {
-		Nom=builder.Nom;
-		Prenom=builder.Prenom;
-		Fonction=builder.Fonction;
-		DateNaissance=builder.DateNaissance;
+		this.Nom=builder.Nom;
+		this.Prenom=builder.Prenom;
+		this.Fonction=builder.Fonction;
+		this.DateNaissance=builder.DateNaissance;
+		this.NumeroTel=builder.NumeroTel;
 	}
 
 }

@@ -13,11 +13,12 @@ public class Personnel implements Hierarchie  {
 	
 	
 	public void afficher() {
-		System.out.println(this.Nom + " " + this.Prenom + ": \nfonction: " 
-		+ this.Fonction + "\ndate de naissance: "+this.DateNaissance + "\n");	
+		System.out.println(this.Nom + " " + this.Prenom + ": \nFonction: " 
+		+ this.Fonction +"  " +"Date de naissance: "+this.DateNaissance + "\n");	
 	}
 	
 	public static class Builder{
+		
 		private final String Nom;
 		private final String Prenom;
 		private final String Fonction;
@@ -37,7 +38,12 @@ public class Personnel implements Hierarchie  {
 			this.NumeroTel.add(numero);
 			return this;
 		}
+		
+		public Personnel build() {
+			return new Personnel(this);
+		}
 	}
+	
 	
 	private Personnel(Builder builder) {
 		this.Nom=builder.Nom;
@@ -45,6 +51,26 @@ public class Personnel implements Hierarchie  {
 		this.Fonction=builder.Fonction;
 		this.DateNaissance=builder.DateNaissance;
 		this.NumeroTel=builder.NumeroTel;
+	}
+	
+	public String getNom() {
+		return this.Nom;
+	}
+	
+	public String getPrenom() {
+		return this.Prenom;
+	}
+	
+	public String getFonction() {
+		return this.Fonction;
+	}
+	
+	public LocalDate getDatDeNaissance() {
+		return this.DateNaissance;
+	}
+	
+	public ArrayList<NumTel> getNumerosTel(){
+		return this.NumeroTel;
 	}
 
 }

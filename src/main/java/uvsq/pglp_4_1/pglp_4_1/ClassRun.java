@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public enum ClassRun {
 	
-	DEVELOPPEMENT;
+	Entreprise;
 	
 	public void run() {
 		
@@ -34,9 +34,28 @@ public enum ClassRun {
 		
 		GroupePersonnel Grp1 = new GroupePersonnel();
 		GroupePersonnel Grp2 = new GroupePersonnel();
+		GroupePersonnel Entreprise = new GroupePersonnel();
 		
 		
+		Entreprise.ajouter(devlopper);
+		Entreprise.ajouter(chomeur);
+		Entreprise.ajouter(manager);
+		Entreprise.ajouter(secretarie);
+		
+		
+		Grp1.ajouter(devlopper);
+		Grp1.ajouter(chomeur);
+		
+		Grp2.ajouter(manager);
+		Grp2.ajouter(secretarie);
+		
+		Entreprise.afficher();
 		
 		}
+	
+	public static void main (String arg[]) {
+		
+		Entreprise.run();
+	}
 
 }

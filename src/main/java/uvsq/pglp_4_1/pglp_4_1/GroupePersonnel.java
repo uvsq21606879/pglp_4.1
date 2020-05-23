@@ -8,8 +8,9 @@ public class GroupePersonnel implements Hierarchie {
 	
 	
 	public void afficher() {
-		for(Hierarchie i : Personnel)
+		for(Hierarchie i : Personnel) {
 			i.afficher();
+		}
 	}
 	
 	
@@ -20,6 +21,10 @@ public class GroupePersonnel implements Hierarchie {
 	
 	public void retirer(Hierarchie Personnel) {
 		this.Personnel.remove(Personnel);
+	}
+	
+	public int getSizeGroupe() {
+		return this.Personnel.size();
 	}
 	
 }

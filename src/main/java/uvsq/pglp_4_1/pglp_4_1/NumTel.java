@@ -7,7 +7,7 @@ public class NumTel {
 	
 	public NumTel(final String informations, final String numero) {
 		this.numero=numero;
-		this.informations=informations;
+		this.informations=" "+informations;
 	}
 	
 	public String getNumero(){

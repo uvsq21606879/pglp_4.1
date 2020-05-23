@@ -13,7 +13,7 @@ public class Personnel implements Hierarchie {
 
 	public void afficher() {
 		System.out.println(this.Nom + " " + this.Prenom + ": \nFonction: " + this.Fonction + "  "
-				+ "Date de naissance: " + this.DateNaissance + "\n");
+				+ "Date de naissance: " + this.DateNaissance + "\nnumero(s) de téléphone : " + this.getNumerosTel() + "\n");
 	}
 
 	public static class Builder {
@@ -24,12 +24,12 @@ public class Personnel implements Hierarchie {
 		private final LocalDate DateNaissance;
 		private final ArrayList<NumTel> NumeroTel;
 
-		public Builder(String Nom, String Prenom, String Fonction, LocalDate DateNaissance) {
+		public Builder(String Nom, String Prenom, String Fonction, LocalDate DateNaissance, ArrayList<NumTel> numeros ) {
 			this.Nom = Nom;
 			this.Prenom = Prenom;
 			this.Fonction = Fonction;
 			this.DateNaissance = DateNaissance;
-			this.NumeroTel = new ArrayList<NumTel>();
+			this.NumeroTel = numeros;
 		}
 
 		public Builder NumeroTel(NumTel numero) {
@@ -66,8 +66,13 @@ public class Personnel implements Hierarchie {
 		return this.DateNaissance;
 	}
 
-	public ArrayList<NumTel> getNumerosTel() {
-		return this.NumeroTel;
+	public String getNumerosTel() {
+		String s = "";
+		for(NumTel n : NumeroTel) {
+			s = s + n.getInformations()+ " : " + n.getNumero();
+		}
+		return s;
+		
 	}
 
 }
